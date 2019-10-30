@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import '../CSS/Card.scss';
 
 class Card extends React.Component{
     constructor(){
@@ -6,12 +7,17 @@ class Card extends React.Component{
         this.state ={
 
         }
-    }
+    };
+
     render () {
         return(
-            <div>
-                <h1>COUCOU</h1>
-            </div>
+            <label>
+                <input type="checkbox"  />
+                <div class="card">
+                    <div class="front">Front</div>
+                    <div class="back">Back</div>
+                </div>
+            </label>
         )
     }
 }
