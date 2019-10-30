@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 class Card extends React.Component{
     constructor(){
         super()
@@ -10,7 +11,7 @@ class Card extends React.Component{
     render () {
         return(
             <div>
-                <h1>COUCOU</h1>
+                <h1>test</h1>
             </div>
         )
     }
