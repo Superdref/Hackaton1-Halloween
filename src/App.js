@@ -1,10 +1,12 @@
 import React from 'react';
+import WithCard from './Components/WithCard'
 
-import './App.css';
+import './CSS/App.css'
 
 function App() {
   return (
-    <div className="App">
+    <div>
+      <WithCard />
     </div>
   );
 }
