@@ -19,6 +19,7 @@ class MyCard extends React.Component{
       });
     }
     render () {
+      const dash = /_/g;
       let flippedCSS = this.state.flipped ? " Card-Back-Flip" : " Card-Front-Flip";
       if (!this.state.clicked) flippedCSS =  "";
         return(
@@ -26,15 +27,14 @@ class MyCard extends React.Component{
             <div className={"Card-Front"+flippedCSS}>
               <CardImg width="100%" height="100%" src="https://media.giphy.com/media/iZYiyCPNG4oes/giphy.gif" alt="coucou" />
               <CardImgOverlay>
-                <CardTitle style={{color: "black", fontSize: "20px"}}>Coucou</CardTitle>
-                <CardText>text image</CardText>
+                <CardTitle style={{color: "black", fontSize: "20px"}}>Movie Country: {this.props.country.replace(dash, ' ')}</CardTitle>
+                <CardText>Year: {this.props.year}</CardText>
               </CardImgOverlay>
-              <p>Sous l'image</p>
             </div>
             <div className={"Card-Back"+flippedCSS}>
               <CardImg width="100%" height="100%" src={this.props.posterUrl} alt="coucou"/>
               <CardImgOverlay>
-                <CardTitle style={{color: "white", fontSize: "40px"}}>Coucou</CardTitle>
+                <CardTitle style={{color: "white", fontSize: "40px"}}>{this.props.title.replace(dash, ' ')}</CardTitle>
               </CardImgOverlay>
             </div>
           </Card>
