@@ -2,16 +2,20 @@ import React from 'react';
 import axios from 'axios';
 import Card from './Card';
 
-import { Row } from 'reactstrap';
+import { Row, Container } from 'reactstrap';
 
 class WithCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      movies: ['Us', 'Blood Island', 'Hereditary', 'Saw', 'Paranormal Activity', 'Saw 2'],
       movieList: [],
       isError: false
     };
+    this.randomNumber = this.randomNumber.bind(this)
+  }
+
+  randomNumber(max){
+    return Math.floor(Math.random()* max)
   }
 
   componentDidMount() {
@@ -20,22 +24,36 @@ class WithCard extends React.Component {
         `https://hackathon-wild-hackoween.herokuapp.com/movies/`
       )
       
-      .then(response => {
-        console.log(response);
+      .then(res => {
+        let movies = res.data.movies
+        const tenMovies = []
+        for (let i = 0; i < 10; i++){
+          const rnd = this.randomNumber(movies.length)
+          if (movies[rnd]){
+            console.log(movies[rnd]);
+            tenMovies.push(movies[rnd])
+            delete movies[rnd]
+          } else {
+            tenMovies.push(movies[0])
+            delete tenMovies[0]
+            [i+1]
+          }
+          
+        }
+        console.log(tenMovies.length);
+        this.setState({movieList: tenMovies})
       });
-
-      const roster = response.data.movieRoster.roster.filter(
-        player => player.raidProgress.progress.mythic > 4
-      );
   }
 
   render() {
     return (
-      <Row className="justify-content-between">
-        {this.state.movies.map((movie, i) => {
-          return <Card {...movie} key={i} />;
+      <Container>
+      <Row>
+        {this.state.movieList.map((movie, id) => {
+          return <Card {...movie} key={id} />;
         })}
       </Row>
+        </Container>
     );
   }
 }
