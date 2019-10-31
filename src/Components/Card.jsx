@@ -23,21 +23,23 @@ class MyCard extends React.Component{
       let flippedCSS = this.state.flipped ? " Card-Back-Flip" : " Card-Front-Flip";
       if (!this.state.clicked) flippedCSS =  "";
         return(
-          <Card className="Card bg-danger" onClick={this.flip}>
-            <div className={"Card-Front"+flippedCSS}>
-              <CardImg width="100%" height="100%" src="https://media.giphy.com/media/iZYiyCPNG4oes/giphy.gif" alt="coucou" />
-              <CardImgOverlay>
-                <CardTitle style={{color: "black", fontSize: "20px"}}>Movie Country: {this.props.country.replace(dash, ' ')}</CardTitle>
-                <CardText>Year: {this.props.year}</CardText>
-              </CardImgOverlay>
-            </div>
-            <div className={"Card-Back"+flippedCSS}>
-              <CardImg width="100%" height="100%" src={this.props.posterUrl} alt="coucou"/>
-              <CardImgOverlay>
-                <CardTitle style={{color: "white", fontSize: "40px"}}>{this.props.title.replace(dash, ' ')}</CardTitle>
-              </CardImgOverlay>
-            </div>
-          </Card>
+          <div className="global">
+            <Card className="Card bg-dark" onClick={this.flip}>
+              <div className={"Card-Front"+flippedCSS}>
+                <CardImg width="330px" height="350px" src="./images/Joker.png" alt="Joker" />
+                <CardImgOverlay>
+                 {/* <CardTitle style={{color: "black", fontSize: "20px"}}>Movie Country: {this.props.country.replace(dash, ' ')}</CardTitle>
+                  <CardText>Year: {this.props.year}</CardText>*/}
+                </CardImgOverlay>
+              </div>
+              <div className={"Card-Back"+flippedCSS}>
+                <CardImg width="330px" height="350px" src={this.props.posterUrl} alt="coucou"/>
+                <CardImgOverlay>
+                {/* <CardTitle style={{color: "white", fontSize: "40px"}}>{this.props.title.replace(dash, ' ')}</CardTitle>*/}
+                </CardImgOverlay>
+              </div>
+            </Card>
+          </div>
         )
     }
 }
