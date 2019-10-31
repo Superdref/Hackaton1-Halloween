@@ -25,7 +25,7 @@ class MyCard extends React.Component{
         return(
           <Card className="Card bg-danger" onClick={this.flip}>
             <div className={"Card-Front"+flippedCSS}>
-              <CardImg width="100%" height="100%" src="https://media.giphy.com/media/iZYiyCPNG4oes/giphy.gif" alt="coucou" />
+              <CardImg width="100%" height="100%" src="./images/Joker.png" alt="Joker" />
               <CardImgOverlay>
                 <CardTitle style={{color: "black", fontSize: "20px"}}>Movie Country: {this.props.country.replace(dash, ' ')}</CardTitle>
                 <CardText>Year: {this.props.year}</CardText>
