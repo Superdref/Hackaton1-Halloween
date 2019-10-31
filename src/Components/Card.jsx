@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Card, CardImg, CardImgOverlay, CardTitle, CardText } from "reactstrap";
+import { Card, CardImg, CardImgOverlay, CardTitle, CardText } from "reactstrap";
 
 import '../CSS/Card.scss';
 
@@ -22,15 +22,22 @@ class MyCard extends React.Component{
       let flippedCSS = this.state.flipped ? " Card-Back-Flip" : " Card-Front-Flip";
       if (!this.state.clicked) flippedCSS =  "";
         return(
-          <div className="Card" onClick={this.flip}>
+          <Card className="Card bg-danger" onClick={this.flip}>
             <div className={"Card-Front"+flippedCSS}>
-              <img width="100%" height="50%" src="https://media.giphy.com/media/iZYiyCPNG4oes/giphy.gif" alt="coucou" />
-              <p>caca</p>
+              <CardImg width="100%" height="100%" src="https://media.giphy.com/media/iZYiyCPNG4oes/giphy.gif" alt="coucou" />
+              <CardImgOverlay>
+                <CardTitle style={{color: "black", fontSize: "20px"}}>Coucou</CardTitle>
+                <CardText>text image</CardText>
+              </CardImgOverlay>
+              <p>Sous l'image</p>
             </div>
             <div className={"Card-Back"+flippedCSS}>
-              <img width="100%" height="100%" src={this.props.posterUrl} alt="coucou"/>
+              <CardImg width="100%" height="100%" src={this.props.posterUrl} alt="coucou"/>
+              <CardImgOverlay>
+                <CardTitle style={{color: "white", fontSize: "40px"}}>Coucou</CardTitle>
+              </CardImgOverlay>
             </div>
-          </div>
+          </Card>
         )
     }
 }
