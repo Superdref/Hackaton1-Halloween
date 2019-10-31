@@ -5,9 +5,9 @@ import './CSS/App.css'
 
 function App() {
   return (
-    <div>
+    <>
       <WithCard />
-    </div>
+    </>
   );
 }
 
